@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amoled_black">
+
+    <!-- Premium Glow Ambient Top Layer (Dynamically adjusted by theme) -->
+    <View
+        android:id="@+id/ambient_top_glow_layer"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_top_yellow_glow" />
+
+    <!-- ============================================== -->
+    <!-- MAIN CONTENT SCROLLER -->
+    <!-- ============================================== -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layout_floating_bottom_nav"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ============================================== -->
+            <!-- SECTION A: CLASSIC MOVIE HOME SCREEN LAYOUT -->
+            <!-- ============================================== -->
+            <LinearLayout
+                android:id="@+id/layout_classic_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Header Bar -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp">
+
+                    <TextView
+                        android:id="@+id/txt_brand_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="PRIMEPLUS"
+                        android:textColor="@color/prime_yellow_glow"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Instagram Quick Launcher -->
+                    <ImageView
+                        android:id="@+id/btn_instagram_profile"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_glassmorphic_card"
+                        android:padding="8dp"
+                        android:src="@android:drawable/ic_menu_share"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </RelativeLayout>
+
+                <!-- Search Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    style="@style/GlassmorphicCard"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_search"
+                        app:tint="@color/text_secondary" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="Search Movies, Series, Anime..."
+                        android:textColorHint="@color/text_hint"
+                        android:textColor="@color/text_primary"
+                        android:paddingStart="12dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Banner Slider -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="20dp"
+                    style="@style/GlassmorphicCard">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_dialog_map" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_banner_gradient" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|start"
+                        android:layout_margin="16dp"
+                        android:text="Stree 2 (Trending #1)"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+            </LinearLayout>
+
+
+            <!-- ============================================== -->
+            <!-- SECTION B: NEW PREMIUM MOVIE OTT SCREEN LAYOUT -->
+            <!-- ============================================== -->
+            <LinearLayout
+                android:id="@+id/layout_ott_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Header: Transparent, no borders, PrimePlus Logo on Left -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp">
+
+                    <TextView
+                        android:id="@+id/txt_ott_brand_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="PRIMEPLUS"
+                        android:textColor="@color/prime_yellow_glow"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <!-- Header Top Right Icons -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Instagram Launcher Icon -->
+                        <ImageView
+                            android:id="@+id/btn_instagram_profile_ott"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/bg_glassmorphic_card"
+                            android:padding="6dp"
+                            android:src="@android:drawable/ic_menu_share" />
+
+                        <!-- Notification Icon -->
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@android:drawable/ic_popup_reminder"
+                            app:tint="@color/text_primary" />
+
+                        <!-- Profile Avatar -->
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@android:drawable/sym_def_app_icon" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Search Bar: Exactly below header (Capsule design) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_floating_nav"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_menu_search"
+                        app:tint="@color/text_secondary" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="Search Movies, TV Shows..."
+                        android:textColorHint="@color/text_hint"
+                        android:textColor="@color/text_primary"
+                        android:paddingStart="12dp"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Category Bar: Horizontal Scroll with underline -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Recommend (Active - with dynamic underline indicator) -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_marginEnd="20dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Recommend"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold"
+                                android:textSize="13sp" />
+                            <View
+                                android:id="@+id/active_category_underline"
+                                android:layout_width="24dp"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@color/prime_yellow_glow" />
+                        </LinearLayout>
+
+                        <!-- Movies -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Movies"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp" />
+
+                        <!-- TV Shows -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TV Shows"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp" />
+
+                        <!-- Anime -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Anime"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp" />
+
+                        <!-- Trending -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trending"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp" />
+
+                        <!-- 18+ -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18+"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Featured Banner: 16:9 Premium Hero Banner with Watch Now buttons -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="20dp"
+                    style="@style/GlassmorphicCard">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_dialog_map" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_banner_gradient" />
+
+                    <!-- Title & Details Overlay -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Stree 2"
+                            android:textColor="@color/text_primary"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="★ 4.8 | Comedy, Horror | 2h 20m"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+
+                        <!-- Action Buttons -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <Button
+                                android:id="@+id/btn_ott_play_featured"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:text="Watch Now"
+                                android:textSize="10sp"
+                                android:backgroundTint="@color/prime_yellow_accent" />
+
+                            <Button
+                                android:id="@+id/btn_ott_fav_featured"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="8dp"
+                                android:text="+ Favorite"
+                                android:textSize="10sp"
+                                android:backgroundTint="@color/card_dark_bg" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- Continue Watching: Progress indicators -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Continue Watching"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp" />
+
+                <LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="8dp"
+                    style="@style/GlassmorphicCard"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@android:drawable/ic_dialog_map" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@android:drawable/ic_media_play"
+                            app:tint="@color/text_primary" />
+                    </FrameLayout>
+
+                    <!-- Progress Indicator Bar -->
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:progress="65"
+                        android:progressTint="@color/prime_yellow_glow" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Stree 2 - Episode 1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- ============================================== -->
+            <!-- SECTION C: SECRET ECHOORA MUSIC APP MODE -->
+            <!-- ============================================== -->
+            <LinearLayout
+                android:id="@+id/layout_echoora_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"> <!-- Default visible for demonstration, managed dynamically -->
+
+                <!-- Header: Transparent, Echoora Branding, Insta icon on right -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp">
+
+                    <TextView
+                        android:id="@+id/txt_echoora_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="echoora"
+                        android:textColor="@color/echoora_purple"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Instagram Launcher Icon inside Echoora -->
+                        <ImageView
+                            android:id="@+id/btn_instagram_profile_echoora"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/bg_glassmorphic_card"
+                            android:padding="6dp"
+                            android:src="@android:drawable/ic_menu_share" />
+
+                        <!-- Search Icon -->
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@android:drawable/ic_menu_search"
+                            app:tint="@color/text_primary" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Echoora Subtitle/Tagline -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Ad-Free YouTube Music &amp; Synced Lyrics"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+                <!-- Echo Find Card (Song Recognition) -->
+                <LinearLayout
+                    android:id="@+id/btn_echo_find"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="20dp"
+                    style="@style/GlassmorphicCard"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@android:drawable/ic_btn_speak_now"
+                        app:tint="@color/echoora_purple" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Echo Find - Audio Recognition"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Identify any songs playing around you instantly"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Echo Brain Card (On-Device AI Engine) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    style="@style/GlassmorphicCard"
+                    android:padding="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🧠 Echo Brain AI Engine"
+                        android:textColor="@color/echoora_purple"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="On-Device engine that analyzes your listening momentum and auto-injects perfectly aligned lossless tracks into your queue."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Lossless Playlist Row -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trending Music Studio"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- LoFi Chill -->
+                        <LinearLayout
+                            android:id="@+id/btn_echoora_track_1"
+                            android:layout_width="160dp"
+                            android:layout_height="120dp"
+                            android:layout_marginEnd="12dp"
+                            style="@style/GlassmorphicCard"
+                            android:padding="12dp"
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:focusable="true">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@android:drawable/ic_media_play"
+                                app:tint="@color/echoora_purple" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Lo-Fi Chill Beats"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:maxLines="1" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ad-free Stream"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Devraj Signature -->
+                        <LinearLayout
+                            android:id="@+id/btn_echoora_track_2"
+                            android:layout_width="160dp"
+                            android:layout_height="120dp"
+                            android:layout_marginEnd="12dp"
+                            style="@style/GlassmorphicCard"
+                            android:padding="12dp"
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:focusable="true">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@android:drawable/ic_media_play"
+                                app:tint="@color/echoora_purple" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Devraj Signature Hits"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:maxLines="1" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Trending Punjabi 2026"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Now Playing Active Bar (Mini Music Player Interface) -->
+                <RelativeLayout
+                    android:id="@+id/echoora_mini_player"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/bg_floating_nav"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/img_song_art"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@android:drawable/sym_def_app_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_toEndOf="@id/img_song_art"
+                        android:layout_marginStart="12dp"
+                        android:layout_centerVertical="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Devraj Signature Hits"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ad-Free Youtube Lossless Stream"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@android:drawable/ic_media_pause"
+                        app:tint="@color/text_primary" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <!-- ============================================== -->
+            <!-- SHARED ROWS FOR BOTH CLASSIC & OTT LAYOUTS -->
+            <!-- ============================================== -->
+            <LinearLayout
+                android:id="@+id/layout_shared_movie_rows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trending Now"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:id="@+id/row_trending_posters"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!-- Standard 2:3 Movie Posters -->
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Popular"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:id="@+id/row_popular_posters"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Floating iOS-Style Bottom Navigation Capsule Bar -->
+    <LinearLayout
+        android:id="@+id/layout_floating_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        style="@style/FloatingBottomNavigation"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Navigation Tabs: Home, Search, Downloads, Settings -->
+        <LinearLayout
+            android:id="@+id/nav_home_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:id="@+id/img_nav_home_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_today"
+                app:tint="@color/prime_yellow_glow" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_home"
+                android:textSize="10sp"
+                android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_search_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_search"
+                app:tint="@color/text_secondary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_search"
+                android:textSize="10sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_downloads_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/stat_sys_download"
+                app:tint="@color/text_secondary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_downloads"
+                android:textSize="10sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Dynamic Settings Tab to open theme & layout switcher popup -->
+        <LinearLayout
+            android:id="@+id/nav_settings_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_preferences"
+                app:tint="@color/text_secondary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textSize="10sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

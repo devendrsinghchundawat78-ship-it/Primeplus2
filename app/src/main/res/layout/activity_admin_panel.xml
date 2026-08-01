@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amoled_black"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔒 PRIMEPLUS ADMIN PANEL"
+            android:textColor="@color/prime_red_glow"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Metrics Dashboard -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                style="@style/GlassmorphicCard"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_total_movies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Movies"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                style="@style/GlassmorphicCard"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_active_servers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active Servers"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Toggle App States -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Control Center"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            style="@style/GlassmorphicCard"
+            android:padding="16dp">
+
+            <Switch
+                android:id="@+id/switch_force_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Force Update (Users must update)"
+                android:textColor="@color/text_primary" />
+
+            <Switch
+                android:id="@+id/switch_maintenance_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Maintenance Mode"
+                android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+        <!-- Streaming and Download Link/Server Manager -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stream Server Manager"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            style="@style/GlassmorphicCard"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_add_server"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ Add Unlimited Server"
+                android:backgroundTint="@color/prime_red_accent" />
+
+            <ListView
+                android:id="@+id/list_servers"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="12dp"
+                android:divider="#22FFFFFF"
+                android:dividerHeight="1dp" />
+        </LinearLayout>
+
+        <!-- Auto Sliding Banner Manager -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Banner Manager"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            style="@style/GlassmorphicCard"
+            android:padding="16dp">
+
+            <Switch
+                android:id="@+id/switch_auto_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable Auto Slider Banner"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btn_schedule_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Schedule Carousel Banner"
+                android:backgroundTint="@color/card_dark_bg" />
+        </LinearLayout>
+
+        <!-- Push Notifications Sender -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Announcements / Alerts"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            style="@style/GlassmorphicCard"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/input_alert_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Announcement Title"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" />
+
+            <EditText
+                android:id="@+id/input_alert_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Announcement Body Message"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" />
+
+            <Button
+                android:id="@+id/btn_send_alert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Send Announcement Popup"
+                android:backgroundTint="@color/prime_red_accent" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+</ScrollView>

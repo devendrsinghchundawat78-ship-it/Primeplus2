@@ -1,0 +1,43 @@
+name: Build Release APK
+
+on:
+  push:
+    branches: [ "main", "master" ] # Triggers on push to either main or master branches
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'gradle' # Cache dependencies to speed up subsequent builds
+
+    - name: Make Gradlew Executable
+      run: chmod +x gradlew
+
+    - name: Build Release APK with Gradle
+      run: ./gradlew assembleRelease --no-daemon --stacktrace
+
+    - name: Sign APK
+      uses: r0adkll/sign-android-release@v1
+      id: sign_app
+      with:
+        releaseDirectory: app/build/outputs/apk/release
+        alias: ${{ secrets.KEY_ALIAS }}
+        release_keystore: ${{ secrets.KEYSTORE_BASE64 }}
+        release_keystore_password: ${{ secrets.KEYSTORE_PASSWORD }}
+        release_key_password: ${{ secrets.KEYSTORE_PASSWORD }}
+
+    - name: Upload APK to Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-apk
+        path: app/build/outputs/apk/release/app-release.signed.apk # Fixed the path space typo (outp uts -> outputs)

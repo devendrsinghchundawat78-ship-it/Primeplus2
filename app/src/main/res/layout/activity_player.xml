@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amoled_black">
+
+    <!-- Native ExoPlayer Core View -->
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/native_exoplayer_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:use_controller="true"
+        app:resize_mode="fit" />
+
+    <!-- Buffering Spinner Overlay -->
+    <ProgressBar
+        android:id="@+id/player_buffering_spinner"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/prime_red_glow"
+        android:visibility="gone" />
+
+    <!-- Volume Gestures HUD Overlay (Centered Left) -->
+    <LinearLayout
+        android:id="@+id/layout_volume_hud"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical|start"
+        android:layout_marginStart="32dp"
+        style="@style/GlassmorphicCard"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_lock_silent_mode_off"
+            app:tint="@color/prime_red_glow" />
+
+        <TextView
+            android:id="@+id/txt_volume_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Volume: 50%"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Brightness Gestures HUD Overlay (Centered Right) -->
+    <LinearLayout
+        android:id="@+id/layout_brightness_hud"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="32dp"
+        style="@style/GlassmorphicCard"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_menu_compass"
+            app:tint="@color/prime_red_glow" />
+
+        <TextView
+            android:id="@+id/txt_brightness_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Brightness: 50%"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Overlay Header displaying Movie Title & Quality Selector Gear -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_banner_gradient"
+        android:padding="16dp"
+        android:layout_gravity="top">
+
+        <TextView
+            android:id="@+id/txt_player_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Stree 2"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Quality settings gear button -->
+        <ImageView
+            android:id="@+id/btn_player_quality"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_glassmorphic_card"
+            android:padding="6dp"
+            android:src="@android:drawable/ic_menu_preferences"
+            app:tint="@color/text_primary"
+            android:clickable="true"
+            android:focusable="true" />
+    </RelativeLayout>
+
+</FrameLayout>

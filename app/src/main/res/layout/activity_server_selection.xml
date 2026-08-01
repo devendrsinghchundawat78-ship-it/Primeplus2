@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amoled_black"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Glowing Header -->
+    <TextView
+        android:id="@+id/movie_title_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Select Play Server"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Choose your preferred streaming source:"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <!-- Server Cards List -->
+    <ListView
+        android:id="@+id/list_server_cards"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp"
+        android:divider="@color/glass_white_border"
+        android:dividerHeight="8dp" /> <!-- Rounded separation gap -->
+
+</LinearLayout>

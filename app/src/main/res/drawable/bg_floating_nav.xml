@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Floating Navigation container with circular ends (Glassmorphism look) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <!-- Heavier translucent white backfill to ensure buttons are readable -->
+    <solid android:color="#20121212" /> <!-- Translucent dark backup mixed with glass -->
+    
+    <!-- Fully rounded corners for floating iOS capsule design -->
+    <corners android:radius="30dp" />
+    
+    <!-- Premium red or glass white border around the capsule -->
+    <stroke
+        android:width="1.5dp"
+        android:color="@color/glass_white_border" />
+</shape>

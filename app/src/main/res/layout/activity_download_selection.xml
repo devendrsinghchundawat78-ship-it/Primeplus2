@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amoled_black"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Glowing Header -->
+    <TextView
+        android:id="@+id/txt_download_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Select Download Server"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Choose your preferred quality link to download:"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <!-- Download Options List -->
+    <ListView
+        android:id="@+id/list_download_options"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp"
+        android:divider="@color/glass_white_border"
+        android:dividerHeight="8dp" />
+
+    <!-- Active Download Progress Indicator Layer (initially hidden) -->
+    <LinearLayout
+        android:id="@+id/layout_active_download_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        style="@style/GlassmorphicCard"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_download_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Progress: 0% | Speed: 0 MB/s | Calculating..."
+            android:textColor="@color/text_primary"
+            android:textSize="12sp" />
+
+        <ProgressBar
+            android:id="@+id/progress_download_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:progressTint="@color/prime_red_glow"
+            android:max="100" />
+
+        <Button
+            android:id="@+id/btn_pause_resume_download"
+            android:layout_width="120dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="end"
+            android:text="Pause"
+            android:textSize="12sp"
+            android:backgroundTint="@color/card_dark_bg" />
+    </LinearLayout>
+
+</LinearLayout>
