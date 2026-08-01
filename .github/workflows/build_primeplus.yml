@@ -1,4 +1,4 @@
-name: Build Release APK
+Name: Build Release APK
 
 on:
   push:
@@ -26,13 +26,17 @@ jobs:
     - name: Build Release APK with Gradle
       run: ./gradlew assembleRelease --no-daemon --stacktrace
 
+    - name: Decode Keystore
+      run: |
+        echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/upload-key.keystore
+
     - name: Sign APK
       uses: r0adkll/sign-android-release@v1
       id: sign_app
       with:
         releaseDirectory: app/build/outputs/apk/release
         alias: ${{ secrets.KEY_ALIAS }}
-        release_keystore: ${{ secrets.KEYSTORE_BASE64 }}
+        release_keystore: app/upload-key.keystore
         release_keystore_password: ${{ secrets.KEYSTORE_PASSWORD }}
         release_key_password: ${{ secrets.KEYSTORE_PASSWORD }}
 
@@ -40,4 +44,4 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: release-apk
-        path: app/build/outputs/apk/release/app-release.signed.apk # Fixed the path space typo (outp uts -> outputs)
+        path: app/build/outputs/apk/release/app-release.signed.apk
