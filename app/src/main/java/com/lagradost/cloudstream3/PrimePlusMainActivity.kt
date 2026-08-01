@@ -287,7 +287,7 @@ class PrimePlusMainActivity : AppCompatActivity() {
         val themeLabel = TextView(this).apply {
             text = "Select Theme Color (Current: ${getSavedAppTheme().uppercase()})"
             setTextColor(android.graphics.Color.WHITE)
-            textSize = 14sp
+            textSize = 14f
             setPadding(0, 10, 0, 10)
         }
         

@@ -12,7 +12,7 @@ import com.lagradost.cloudstream3.ui.settings.extensions.RepositoryData
 class PrimePlusApp : Application() {
 
     override fun onCreate() {
-        super.initOnCreate()
+        super.onCreate()
         Log.d("PrimePlus", "Initializing PrimePlus - Premium AMOLED Movie Experience")
 
         // 1. Hardcode Default Extension Repository (Megix Repo)
@@ -36,11 +36,10 @@ class PrimePlusApp : Application() {
         if (currentRepos.none { it.url == defaultRepoUrl }) {
             val newRepo = RepositoryData(
                 name = defaultRepoName,
-                url = defaultRepoUrl,
-                language = "hi" // Hindi default filter
+                url = defaultRepoUrl
             )
             val updatedRepos = currentRepos + newRepo
-            CloudStreamApp.setKey(REPOSITORIES_KEY, updatedRepos.toTypedArray())
+            CloudStreamApp.setKey(REPOSITORIES_KEY, updatedRepos)
             Log.d("PrimePlus", "Successfully preloaded default repository: $defaultRepoName")
         } else {
             Log.d("PrimePlus", "Default repository already exists. Skipping preload.")

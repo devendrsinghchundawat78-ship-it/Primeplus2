@@ -106,7 +106,7 @@ class CloudStreamApp : Application(), SingletonImageLoader.Factory {
                 url = defaultRepoUrl,
             )
             val updatedRepos = currentRepos + newRepo
-            setKey("PREBUILT_REPOSITORIES", updatedRepos.toTypedArray())
+            setKey("PREBUILT_REPOSITORIES", updatedRepos)
             android.util.Log.d("PrimePlus", "Successfully preloaded default repository: $defaultRepoName")
         }
     }
