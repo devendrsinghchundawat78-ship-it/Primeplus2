@@ -2,9 +2,11 @@
 <!-- Bottom-Up black gradient to darken the banner bottom for text readability -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
+
     <gradient
         android:angle="90"
-        android:startColor="#CC000000" <!-- 80% opacity dark -->
-        android:endColor="#00000000"   <!-- Transparent -->
+        android:startColor="#CC000000"
+        android:endColor="#00000000"
         android:type="linear" />
+
 </shape>
