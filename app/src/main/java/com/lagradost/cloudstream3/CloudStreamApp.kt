@@ -101,9 +101,9 @@ class CloudStreamApp : Application(), SingletonImageLoader.Factory {
 
         if (currentRepos.none { it.url == defaultRepoUrl }) {
             val newRepo = com.lagradost.cloudstream3.ui.settings.extensions.RepositoryData(
+                 iconUrl = null,
                 name = defaultRepoName,
                 url = defaultRepoUrl,
-                language = "hi"
             )
             val updatedRepos = currentRepos + newRepo
             setKey("PREBUILT_REPOSITORIES", updatedRepos.toTypedArray())
