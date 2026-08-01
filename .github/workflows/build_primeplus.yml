@@ -1,4 +1,4 @@
-name: Build Release APK
+name: Build Debug APK
 
 on:
   push:
@@ -23,25 +23,11 @@ jobs:
     - name: Make Gradlew Executable
       run: chmod +x gradlew
 
-    - name: Build Release APK with Gradle
-      run: ./gradlew assembleRelease --no-daemon --stacktrace
-
-    - name: Decode Keystore
-      run: |
-        echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/upload-key.keystore
-
-    - name: Sign APK
-      uses: r0adkll/sign-android-release@v1
-      id: sign_app
-      with:
-        releaseDirectory: app/build/outputs/apk/release
-        alias: ${{ secrets.KEY_ALIAS }}
-        release_keystore: app/upload-key.keystore
-        release_keystore_password: ${{ secrets.KEYSTORE_PASSWORD }}
-        release_key_password: ${{ secrets.KEYSTORE_PASSWORD }}
+    - name: Build Debug APK with Gradle
+      run: ./gradlew assembleDebug --no-daemon --stacktrace
 
     - name: Upload APK to Artifacts
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@v4
       with:
-        name: release-apk
-        path: app/build/outputs/apk/release/app-release.signed.apk
+        name: debug-apk
+        path: app/build/outputs/apk/debug/app-debug.apk
