@@ -1,9 +1,9 @@
-Name: Build Release APK
+name: Build Release APK
 
 on:
   push:
-    branches: [ "main", "master" ] # Triggers on push to either main or master branches
-  workflow_dispatch: # Allows manual trigger from GitHub Actions UI
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-        cache: 'gradle' # Cache dependencies to speed up subsequent builds
+        cache: 'gradle'
 
     - name: Make Gradlew Executable
       run: chmod +x gradlew
